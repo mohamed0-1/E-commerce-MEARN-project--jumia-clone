@@ -1,0 +1,281 @@
+<div class="main-content card w-75 mx-auto shadow">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-warning">
+                        <h4 class="card-title ">{{"AddProducts" |translate}} </h4>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- ADD PRODUCT  -->
+
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="contact form">
+                        <form action="" (ngSubmit)="AddProduct()" #prdForm="ngForm">
+
+                            <!-- name -->
+                            <div class="row d-flex justify-content-between">
+                                <!-- English Name -->
+                                <div class="mb-4">
+                                    <label for=""> {{"ProductNameEn" | translate}}</label>
+                                    <input id=" Name" #prdnameEn="ngModel" [(ngModel)]=" prd.nameEn" name="Name"
+                                        class="form-control form-control-lg fs-6 shadow-none " type="text"
+                                       placeholder="" required>
+                                    <div [hidden]='prdnameEn.valid || prdnameEn.untouched' class=" fw-bold text-danger">
+                                        Product Name is
+                                        required</div>
+                                </div>
+                                <!-- Arabic Name -->
+                                <div class="mb-4">
+                                    <label for=""> {{"ProductNameAr" | translate}}</label>
+                                    <input id=" Name" #prdnameAr="ngModel" [(ngModel)]=" prd.nameAr" name="Name"
+                                        class="form-control form-control-lg fs-6 shadow-none " type="text" 
+                                       
+                                        required>
+                                    <div [hidden]='prdnameAr.valid || prdnameAr.untouched' class=" fw-bold text-danger">
+                                        Product Name is
+                                        required</div>
+                                </div>
+                                
+                            </div>
+
+                            <!-- price -->
+                            <div class="row">
+                                <div class="col-lg-12  mb-4">
+                                    <label for=""> {{"ProductPrice" | translate}}</label>
+                                    <input id=" Price" [(ngModel)]=" prd.price" name=" Price"
+                                        class="form-control form-control-lg fs-6  shadow-none" type="number"
+                                        #prdprice="ngModel" required>
+                                    <div [hidden]='prdprice.valid || prdprice.untouched' class="fw-bold text-danger">
+                                        Product Price
+                                        is required</div>
+                                </div>
+                            </div>
+
+                            <!-- Quantity -->
+                            <div class="row">
+                                <div class="col-lg-12  mb-4">
+                                    <label for=""> {{"ProductQuantity" | translate}}</label>
+                                    <input id=" Price" [(ngModel)]=" prd.quantity" name=" Quantity" class="form-control form-control-lg fs-6  shadow-none"
+                                        type="number"  #prdquantity="ngModel" required>
+                                    <div [hidden]='prdquantity.valid || prdquantity.untouched' class="fw-bold text-danger">
+                                        Product Quantity is
+                                         required</div>
+                                </div>
+                            </div>
+
+                            <!-- Size -->
+                            <div class="row">
+                                <div class="col-lg-12  mb-4">
+                                    <label for=""> {{"ProductSize" | translate}}</label>
+                                    <input id=" Price" [(ngModel)]=" prd.size" name=" Size"
+                                        class="form-control form-control-lg fs-6  shadow-none" type="text"
+                                       #prdsize="ngModel" required>
+                                    <div [hidden]='prdsize.valid || prdsize.untouched' class="fw-bold text-danger">
+                                        Product Size is
+                                        required</div>
+                                </div>
+                            </div>
+
+                            <!-- dynamic company -->
+                            <!-- <label>Select Product Company</label>
+                            <select class="form-select" name="company" [(ngModel)]="selectedCompany" id="comp" required>
+                                <option *ngFor="let company of allCompany" value="{{company}}">{{company}}</option>
+                            </select> -->
+                            <!-- company Name -->
+                            <div class="row">
+                                <div class="mb-4">
+                                    <label for=""> {{"ProductCompany" | translate}}</label>
+                                    <input id=" Name" #companyName="ngModel" [(ngModel)]=" prd.company" name="Name"
+                                        class="form-control form-control-lg fs-6 shadow-none " type="text"
+                                        required>
+                                    <div [hidden]='companyName.valid || companyName.untouched' class=" fw-bold text-danger">
+                                        Company Name is
+                                        required</div>
+                                </div>
+                            </div>
+
+
+                            <!--  description -->
+                            <div class="row">
+                                <!-- English Description -->
+                                <div class="mb-4">
+                                    <label>{{"DescriptionEn" | translate}}</label>
+                                    <textarea id=" " [(ngModel)]=" prd.descriptionEn" name="description"
+                                        class="form-control form-control-lg fs-6  shadow-none"
+                                        #prddescriptionEn="ngModel"> </textarea>
+                                    <div [hidden]='prddescriptionEn.valid || prddescriptionEn.untouched'
+                                        class="fw-bold text-danger"> Product
+                                        description is required</div>
+                                </div>
+                                <!-- Arabic Description -->
+                                <div class="mb-4">
+                                    <label>{{"DescriptionAn" | translate}}</label>
+                                    <textarea id=" " [(ngModel)]=" prd.descriptionAr" name="description"
+                                        class="form-control form-control-lg fs-6  shadow-none" #prddescriptionAr="ngModel"> </textarea>
+                                    <div [hidden]='prddescriptionAr.valid || prddescriptionAr.untouched' class="fw-bold text-danger"> Product
+                                        description is required</div>
+                                </div>
+                            </div>
+
+                            <!-- image ="ngModel" [(ngModel)]=" prd.image" -->
+                            <div class="row">
+                                <div class="col-lg-12  mb-4">
+                                    <input accept="image/*" id=" image" #imageInput name="image"
+                                        class="form-control form-control-lg fs-6 shadow-none " type="file"
+                                        (change)="uploadfile($event)" placeholder="Enter Your  Product  image" required>
+                                    <!-- <div [hidden]='imageInput.valid || imageInput.untouched'
+                                        class="fw-bold text-danger">
+                                        Product image is
+                                        required</div> -->
+                                </div>
+                            </div>
+
+
+
+
+                            <!-- <div class="row">
+                                <div class="col-lg-12  mb-4">
+                                    <input name="" id=" " [(ngModel)]=" prd.category"
+                                        class="form-control form-control-lg fs-6 shadow-none " type="text"
+                                        placeholder="Enter Your  Product category">
+                                </div>
+                            </div> -->
+                            <!-- dynamic -->
+                            <!-- <label>Select Product Category</label>
+                            <select class="form-select" name="category" [(ngModel)]="selectedCategory" id="cat"
+                                required>
+                                <option *ngFor="let categ of allCategory" value="{{categ}}">{{categ}}</option>
+                            </select> -->
+                            <!-- company Name -->
+                            
+                            <!-- Catergory -->
+                            <div class="row">
+                                <div class="mb-4">
+                                    <label>{{"ProductCategory" | translate}}</label>
+                                    <input id=" Name" #categoryParentName="ngModel" [(ngModel)]=" prd.categoryparent" name="Name"
+                                        class="form-control form-control-lg fs-6 shadow-none " type="text"
+                                        required>
+                                    <div [hidden]='categoryParentName.valid || categoryParentName.untouched' class=" fw-bold text-danger">
+                                        Product Category is
+                                        required</div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="mb-4">
+                                    <label>{{"ProductSubCategory" | translate}}</label>
+                                    <input id=" Name" #categoryName="ngModel" [(ngModel)]=" prd.category" name="Name"
+                                        class="form-control form-control-lg fs-6 shadow-none " type="text"
+                                         required>
+                                    <div [hidden]='categoryName.valid || categoryName.untouched' class=" fw-bold text-danger">
+                                        Product Sub Category is
+                                        required</div>
+                                </div>
+                            </div>
+
+                            <!-- Product Color -->
+                            <div class="row">
+                            <div class="mb-4">
+                                <label>{{"ProductColor" | translate}}</label>
+                            <input id=" Name" #prdColor="ngModel" [(ngModel)]=" prd.color" name="Color"
+                                class="form-control form-control-lg fs-6 shadow-none " type="text"
+                                required>
+                            <div [hidden]='prdColor.valid || prdColor.untouched' class=" fw-bold text-danger">
+                                Product Color is
+                                required</div>
+                            </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12  mb-4">
+                                    <button id="" class="btn btn-dark" type="submit" [disabled]="prdForm.invalid"> 
+                                       {{"AddProduct" |translate}}</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+
+        </div>
+    </div>
+</div>
+
+
+
+<!-- kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk -->
+
+<!-- <div class="container-fluid">
+   <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="row card">
+                <div class="col-sm-12">
+                    <h4>Upload Section</h4>
+                    <div id="fileSelector">
+                        <input type="file" name="fileUplaod" id="fileUpload" multiple ng2FileSelect
+                            [uploader]="uploader">
+                    </div>
+                    <div>
+                        <div class="row uploadList" *ngFor="let item of uploader.queue">
+                            <div class="col-sm-4">{{item.file.name}}</div>
+                            <div class="col-sm-4">
+                                <div class="progress">
+                                    <div class="progress-bar bg-success" [ngStyle]="{'width':item.progress+'%'}"></div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <button type="button" class="btn btn-dark" (click)="item.upload()">Upload</button>
+                                <button type="button" class="btn btn-danger" (click)="item.remove()">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" *ngIf="uploader?.queue?.length > 0">
+                        <button type="button" class="btn btn-primary" (click)="uploader.uploadAll()">Upload All</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row card">
+                <h4>Download Section</h4>
+
+                <div class="row" *ngFor="let item of attachmentList; let i = index"
+                    style="margin:10px;padding:5px;background-color:rgb(231, 229, 229); border-radius:5px; line-height:40px;">
+                    <div class="col-sm-7">{{item.originalname}}</div>
+                    <div class="col-sm-5" style="text-align:center;"><button type="button" class="btn btn-primary"
+                            (click)="download(i)">Download</button></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div> -->
+
+
+
+<!-- 33333333333 -->
+
+
+<!-- <div class="container">
+    <form [formGroup]="form" (ngSubmit)="submitForm()">
+        <div class="form-group">
+            <input type="file" (change)="uploadFile($event)">
+        </div>
+
+        <div class="form-group input-group-lg">
+            <input class="form-control" placeholder="Name" formControlName="name">
+        </div>
+
+        <div class="form-group">
+            <button class="btn btn-danger btn-block btn-lg">Create</button>
+        </div>
+    </form>
+</div> -->

@@ -1,0 +1,3 @@
+.card [class*=card-header-] .ct-chart .ct-series-a .ct-bar {
+    stroke-width: 100px;
+}

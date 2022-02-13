@@ -1,0 +1,328 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="col-md-4">
+        <div class="card card-profile">
+          <div class="card-avatar">
+            <a>
+              <img src="{{admindata.image}}" class="pt-3  ">
+            </a>
+          </div>
+          <div class="card-body">
+            <h6 class="card-category text-gray">{{admindata.role}}</h6>
+            <h4 class="card-title">{{admindata.name}}</h4>
+
+              <button type="button" class="btn  btn-warning fs-6 " data-bs-toggle="modal"
+                  data-bs-target="#staticBackdrop">
+                  {{"EDITPROFILE" |translate}}
+              </button>
+              <!-- <button mat-button color="accent">Accent</button>
+              <i class="large material-icons">ac_unit</i> -->
+
+              <!-- test modal -->
+              <!-- Modal -->
+              <div class="modal fade " id="staticBackdrop" data-bs-backdrop="static"
+                  data-bs-keyboard="false" tabindex="-1"
+                  aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                  <div class="modal-dialog ">
+
+
+                      <div class="modal-content">
+                          <div class="modal-header">
+                              <h5 class="modal-title" id="staticBackdropLabel">{{"EDITPROFILE" | translate}}</h5>
+                              <button type="button" class="btn-close"
+                                  data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+
+
+                          <div class="modal-body position-relative mt-4">
+
+       <!-- start -->
+        <div class="col-md-12">
+        <div class="">
+          <div class="card-header card-header-warning">
+            <h4 class="card-title " >{{"EDITPROFILE" | translate}}</h4>
+            <p class="card-category">{{"COMPLETEYOURPROFILE" | translate}}</p>
+          </div>
+          <div class="card-body">
+            <form (ngSubmit)="UpdateUser()" #userForm="ngForm">
+
+
+              <!-- 
+                          <div class="row">
+                              <div class="col-md-6">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Fist Name" type="text">
+                                </mat-form-field>
+                              </div>
+                              <div class="col-md-6">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Last Name" type="text">
+                                </mat-form-field>
+                              </div>
+                          </div> -->
+
+
+              <!-- name -->
+              <div class="row">
+                <div class="col-md-12">
+                  <mat-form-field class="example-full-width">
+                    <label>{{"Name" | translate}}</label>
+                    <input matInput  #username="ngModel" type="text" [(ngModel)]=" user.name"
+                      name="Name">
+                  </mat-form-field>
+                  <div [hidden]='username.valid || username.untouched' class=" fw-bold text-danger">
+                    User Name is
+                    required</div>
+                </div> 
+              </div> 
+              <!-- email -->
+              <div class="row">
+                <div class="col-md-12">
+                  
+                  <mat-form-field class="example-full-width">
+                    <label>{{"Email" | translate}}</label>
+                    <input matInput  #useremail="ngModel" type="text" [(ngModel)]=" user.email"
+                      name="email">
+                  </mat-form-field>
+                  <div [hidden]='useremail.valid || useremail.untouched' class=" fw-bold text-danger">
+                    User email is
+                    required</div>
+                </div>
+              </div> 
+              <!-- password -->
+               <div class="row">
+                <div class="col-md-12">
+                  
+                  <mat-form-field class="example-full-width">
+                    <label>{{"password" | translate}}</label>
+                    <input matInput  #userpassword="ngModel" type="password"
+                      [(ngModel)]=" user.password" name="password">
+                  </mat-form-field>
+                  <div [hidden]='userpassword.valid || userpassword.untouched' class=" fw-bold text-danger">
+                    User password is
+                    required</div>
+                </div>
+              </div> 
+              <!-- role -->
+               <!-- <div class="row">
+                <div class="col-md-12">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="role" #userrole="ngModel" type="text" [(ngModel)]=" user.role"
+                      name="role">
+                  </mat-form-field>
+                  <div [hidden]='userrole.valid || userrole.untouched' class=" fw-bold text-danger">
+                    User role is
+                    required</div>
+                </div>
+              </div>  -->
+
+
+
+              <!-- <image ="ngModel" [(ngModel)]=" prd.image"  -->
+               <div class="row">
+                <div class="col-lg-12  mb-4">
+                  <input matInput accept="image/*" id=" image" #imageInput name="image"
+                    class="form-control form-control-lg fs-6 shadow-none " type="file" (change)="uploadfile($event)"
+                    placeholder="Enter Your  Product  image" required> 
+                  <!-- <div [hidden]='imageInput.valid || imageInput.untouched' class="fw-bold text-danger">
+                    Product image is
+                    required</div>  -->
+                 </div>
+              </div> 
+
+    <!-- <a [routerLink]="['/login']"  (click)="clearStorage()"> -->
+              <button mat-raised-button type="submit" class="btn btn-warning pull-right">{{"UPDATEPROFILE" | translate}}</button>
+<!-- </a> -->
+
+               <div class="clearfix"></div>
+            </form>
+          </div>
+        </div>
+      </div> 
+       <!-- start -->
+                          </div>
+
+
+
+                          <!-- <div class="modal-footer">
+                              <button type="button" class="btn btn-default"
+                                  data-bs-dismiss="modal">Close</button>
+                              <button type="button" class="btn btn-primary">Check
+                                  Out</button>
+                          </div> -->
+                      </div>
+                  </div>
+              </div>
+              <!-- test modal -->
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-warning">
+            <h4 class="card-title ">{{"ADMINSTABLE" | translate}}</h4>
+            <!-- <p class="card-category"> Here is a subtitle for this table</p> -->
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table">
+                <thead style="color:#000">
+                  <th>
+                    {{"ID"| translate}}
+                  </th>
+                  <th>
+                    {{"NAME" |translate}}
+                  </th>
+                  <th>
+                    {{"ROLE" |translate}}
+                  </th>
+                  <th>
+                    {{"IMAGE" | translate}}
+                  </th>
+                  <th>
+                    {{"EMAIL" |translate}}
+                  </th>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let admin of   allAdmins; let i=index " class="fs-5 text-black">
+                    <td>
+                      {{i+1}}
+                    </td>
+                    <td>
+                      {{admin.name}}
+                    </td>
+                    <td class="text-primary">
+                      {{admin.role}}
+                    </td>
+                    <td style="width:6%">
+                      <img src="{{admin.image}}" class="w-100">
+
+                    </td>
+                    <td>
+                      {{admin.email}}
+
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+
+  </div>
+
+</div>
+
+
+<button type="button" class="btn  btn-warning m-5  " data-bs-toggle="modal" data-bs-target="#staticBackdrop1">
+ {{"AddAdmin" |translate}}
+</button>
+<!-- <button mat-button color="accent">Accent</button>
+                                                                                        <i class="large material-icons">ac_unit</i> -->
+
+<!-- test modal -->
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+  aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog ">
+
+
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Cart</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+
+      <div class="modal-body position-relative ">
+
+        <!--body  -->
+
+        <!-- name -->
+        <div class="row">
+          <div class="col-md-12">
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Name" #username="ngModel" type="text" [(ngModel)]=" newuser.name"
+                name="Name">
+            </mat-form-field>
+            <div [hidden]='username.valid || username.untouched' class=" fw-bold text-danger">
+              User Name is
+              required</div>
+          </div>
+        </div>
+        <!-- email -->
+        <div class="row">
+          <div class="col-md-12">
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Email" #useremail="ngModel" type="text" [(ngModel)]=" newuser.email"
+                name="email">
+            </mat-form-field>
+            <div [hidden]='useremail.valid || useremail.untouched' class=" fw-bold text-danger">
+              User email is
+              required</div>
+          </div>
+        </div>
+        <!-- password -->
+        <div class="row">
+          <div class="col-md-12">
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="password" #userpassword="ngModel" type="password" [(ngModel)]=" newuser.password"
+                name="password">
+            </mat-form-field>
+            <div [hidden]='userpassword.valid || userpassword.untouched' class=" fw-bold text-danger">
+              User password is
+              required</div>
+          </div>
+        </div>
+        <!-- role -->
+        <div class="row">
+          <div class="col-md-12">
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="role" #userrole="ngModel" type="text" [(ngModel)]=" newuser.role"
+                name="role">
+            </mat-form-field>
+            <div [hidden]='userrole.valid || userrole.untouched' class=" fw-bold text-danger">
+              User role is
+              required</div>
+          </div>
+        </div>
+
+
+
+        <!-- image ="ngModel" [(ngModel)]=" prd.image" -->
+        <div class="row">
+          <div class="col-lg-12  mb-4">
+            <input matInput accept="image/*" id=" image" #imageInput name="image"
+              class="form-control form-control-lg fs-6 shadow-none " type="file" (change)="uploadfile($event)"
+              placeholder="Enter Your  Product  image" >
+            <!-- <div [hidden]='imageInput.valid || imageInput.untouched' class="fw-bold text-danger">
+              Product image is
+              required</div> -->
+          </div>
+        </div>
+
+      </div>
+
+
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="CreateAdmin()">Add</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- test modal -->
